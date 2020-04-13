@@ -1,5 +1,11 @@
-#!/bin/sh
+#!/bin/bash
+if ! [ $(id -u) = 0 ]; then
+   echo "This script must be run as root!"
+   exit 1
+fi
+sudo apt install adb -y
 # adb configuration script
+
 PATH=$PATH:/bin:/sbin:/usr/sbin
 ANDROID_HOME=~/.android
 ANDROID_CONFIG=~/.android/adb_usb.ini
